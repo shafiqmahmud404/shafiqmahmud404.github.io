@@ -14,8 +14,15 @@ html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px)
 body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 a{color:var(--ac);text-decoration:none}a:hover{text-decoration:underline}
 nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--bd)}
-nav div{max-width:960px;margin:auto;padding:12px 20px;display:flex;gap:18px;align-items:center;overflow-x:auto;white-space:nowrap}
-nav b{margin-right:auto;font-size:18px}nav a{color:var(--mut);font-size:14px}
+nav .bar{max-width:960px;margin:auto;padding:12px 20px;display:flex;gap:18px;align-items:center;overflow-x:auto;white-space:nowrap}
+nav b{margin-right:auto;font-size:18px}
+.links,.sub{list-style:none;margin:0;padding:0}
+.links{display:flex;gap:18px;align-items:center}
+.links a{display:block;color:var(--mut);font-size:14px}
+.has>a::after{content:" ▾";font-size:10px}
+.sub{position:fixed;z-index:30;display:none;min-width:210px;padding:6px;background:var(--card);border:1px solid var(--bd);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.sub a{padding:6px 10px;border-radius:6px}.sub a:hover{background:var(--ac2);color:var(--tx);text-decoration:none}
+.links>li:hover>.sub,.links>li:focus-within>.sub{display:block}
 main{max-width:960px;margin:auto;padding:0 20px}
 section{padding:48px 0 8px}
 h2{font-size:26px;margin:0 0 20px;letter-spacing:-.01em}
@@ -58,7 +65,14 @@ footer{margin-top:56px;border-top:1px solid var(--bd);padding:28px 20px;text-ali
 </style>
 </head>
 <body>
-<nav><div><b>Shafiq Mahmud</b><a href="#about">About</a><a href="#interests">Interests</a><a href="#education">Education</a><a href="#research">Research</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#beyond">Awards</a><a href="#outreach">Outreach</a><a href="#contact">Contact</a></div></nav>
+<nav><div class="bar"><b>Shafiq Mahmud</b><ul class="links" id="links">
+<li><a href="#about">About</a></li><li><a href="#interests">Interests</a></li><li><a href="#education">Education</a></li>
+<li class="has"><a href="#research">Research</a><ul class="sub"><li><a href="#thesis">Thesis & ongoing</a></li><li><a href="#review">Under review</a></li><li><a href="#preprint">Preprint</a></li><li><a href="#conference">Conference paper</a></li><li><a href="#report">Technical report</a></li></ul></li>
+<li><a href="#projects">Projects</a></li><li><a href="#skills">Skills</a></li>
+<li class="has"><a href="#beyond">Awards</a><ul class="sub"><li><a href="#honors">Honors & awards</a></li><li><a href="#fieldexp">Field experience</a></li><li><a href="#leadership">Leadership</a></li></ul></li>
+<li class="has"><a href="#outreach">Outreach</a><ul class="sub r"><li><a href="#youtube">YouTube tutorials</a></li><li><a href="#photo-work">Photography & drone</a></li></ul></li>
+<li><a href="#contact">Contact</a></li>
+</ul></div></nav>
 <main>
 <header class="hero">
 <div class="av"><img src="photo.jpg" alt="Shafiq Mahmud" onerror="this.remove()">SM</div>
@@ -67,7 +81,7 @@ footer{margin-top:56px;border-top:1px solid var(--bd);padding:28px 20px;text-ali
 <h1>Shafiq Mahmud</h1>
 <div class="tag">GIS · Remote Sensing · GeoAI & Geospatial Machine Learning</div>
 <p>Final-year undergraduate in Urban and Regional Planning at CUET, building uncertainty-aware geospatial models for flood, landslide, drought and storm risk.</p>
-<a class="btn p" href="#research">Research</a><a class="btn" href="CV_Shafiq_Mahmud.pdf" download>Download CV</a><a class="btn" href="mailto:shafiqmahmud35@gmail.com">Email</a><a class="btn" href="https://www.linkedin.com/in/mahmud-shafiq/" target="_blank" rel="noopener">LinkedIn ↗</a>
+<a class="btn p" href="#research">Research</a><a class="btn" href="CV_Shafiq_Mahmud.pdf" download>Download CV</a><a class="btn" href="mailto:shafiqmahmud35@gmail.com">Email</a><a class="btn" href="https://www.linkedin.com/in/mahmud-shafiq/" target="_blank" rel="noopener">LinkedIn ↗</a><a class="btn" href="https://scholar.google.com/citations?hl=en&amp;user=vE95BqUAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a><a class="btn" href="https://www.researchgate.net/profile/Shafiq-Mahmud" target="_blank" rel="noopener">ResearchGate ↗</a>
 </div>
 </header>
 <div class="stats"><div><b>1</b><span>Manuscript under review</span></div><div><b>2</b><span>Preprints on EarthArXiv</span></div><div><b>1</b><span>Conference paper presented</span></div><div><b>3</b><span>Ongoing research works</span></div></div>
@@ -91,19 +105,19 @@ footer{margin-top:56px;border-top:1px solid var(--bd);padding:28px 20px;text-ali
 </div></section>
 
 <section id="research"><h2>Research & Publications</h2>
-<h4>Thesis & ongoing research</h4>
+<h4 id="thesis">Thesis & ongoing research</h4>
 <div class="card">
 <div class="item"><span class="pill">Undergraduate thesis · Ongoing</span><p class="cite">Machine learning-based agricultural drought risk assessment in Bangladesh. Department of Urban and Regional Planning, CUET.</p></div>
 <div class="item"><span class="pill">Ongoing</span><p class="cite">Uncertainty-informed bivariate decision zones for storm-impact susceptibility in the cyclone-exposed southwestern coast of Bangladesh.</p></div>
 <div class="item"><span class="pill">Ongoing</span><p class="cite">Coastal land dynamics of Noakhali, Bangladesh (2000–2020): a multi-sensor remote sensing analysis and engineering assessment for economic zone development.</p></div>
 </div>
-<h4>Manuscript under review</h4>
+<h4 id="review">Manuscript under review</h4>
 <div class="card"><div class="item"><span class="pill">Under review · Journal of Mountain Science</span><span class="pill">SCIE · Scopus · IF 2.7 · JCR Q3 | Scopus Q2</span><p class="cite">Murad, G., Srabony, S. C., <b>Mahmud, S.</b> & Rahman, M. A. <a href="https://doi.org/10.31223/x55j40" target="_blank" rel="noopener">Uncertainty-aware Bayesian machine learning for landslide susceptibility mapping in the Chattogram metropolitan hill system, Bangladesh.</a> <i>Journal of Mountain Science</i> (under review). Preprint at EarthArXiv (2026).</p><a class="lnk" href="https://doi.org/10.31223/x55j40" target="_blank" rel="noopener">View preprint ↗</a></div></div>
-<h4>Preprint</h4>
+<h4 id="preprint">Preprint</h4>
 <div class="card"><div class="item"><span class="pill">EarthArXiv · 2026</span><p class="cite"><b>Mahmud, S.</b>, Murad, G. & Rahman, M. A. <a href="https://doi.org/10.31223/x5jj5s" target="_blank" rel="noopener">Enhancing the generalization of flood susceptibility models: a leakage-aware ensemble framework for deltaic landscapes.</a> Preprint at EarthArXiv (2026).</p><a class="lnk" href="https://doi.org/10.31223/x5jj5s" target="_blank" rel="noopener">View preprint ↗</a></div></div>
-<h4>Conference paper</h4>
+<h4 id="conference">Conference paper</h4>
 <div class="card"><div class="item"><span class="pill">Presented · RUET · 12–14 Dec 2025</span><p class="cite">Sarker, S., <b>Mahmud, S.</b>, Monjur, A., Talbi, M. A. & Sikder, J. <a href="https://www.researchgate.net/publication/399724034_National-Scale_Drought_Mapping_Using_Satellite-Derived_Biophysical_Indices_Towards_a_Robust_Drought_Monitoring_System_in_Bangladesh" target="_blank" rel="noopener">National-scale drought mapping using satellite-derived biophysical indices: towards a robust drought monitoring system in Bangladesh.</a> Presented at the International Conference on Civil Engineering Research & Innovations, Rajshahi University of Engineering & Technology (RUET), Rajshahi, Bangladesh (Paper ID: 336).</p><a class="lnk" href="https://www.researchgate.net/publication/399724034_National-Scale_Drought_Mapping_Using_Satellite-Derived_Biophysical_Indices_Towards_a_Robust_Drought_Monitoring_System_in_Bangladesh" target="_blank" rel="noopener">View on ResearchGate ↗</a></div></div>
-<h4>Technical report</h4>
+<h4 id="report">Technical report</h4>
 <div class="card"><div class="item"><span class="pill">Unpublished</span><p class="cite"><b>Mahmud, S.</b>, Murad, G. & Rahman, M. A. Fragile slopes, damaged roads: an investigation into clustered landslides along the Rajasthali–Saichal segment of the Border Road, Bangladesh. Newsletter report (unpublished).</p></div></div>
 </section>
 
@@ -123,35 +137,35 @@ footer{margin-top:56px;border-top:1px solid var(--bd);padding:28px 20px;text-ali
 </div></section>
 
 <section id="beyond"><h2>Awards, Experience &amp; Leadership</h2>
-<h4>Honors & Awards</h4>
+<h4 id="honors">Honors & Awards</h4>
 <div class="grid">
 <div class="card award" tabindex="0" data-a="unops"><img class="th" src="unops-1.jpg" alt="" onerror="this.remove()"><span class="pill">First Prize</span><h3>Carbon Conscious Urban Design Idea Competition</h3><p>UNOPS, RAJUK, MoHPW, with support from BMZ. Concept: “The Receding Membrane”.</p></div>
 <div class="card award" tabindex="0" data-a="quiz"><img class="th" src="quiz-1.jpg" alt="" onerror="this.remove()"><span class="pill">Winner · Nov 8, 2024</span><h3>Inter-University Quiz on Spatial Planning Framework for Bangladesh</h3><p>University level. Bangladesh Institute of Planners.</p></div>
 <div class="card award" tabindex="0" data-a="photo"><img class="th" src="photo-contest-1.jpg" alt="" onerror="this.remove()"><span class="pill">First Prize · Nov 20, 2025</span><h3>World Town Planning Day Photography Contest</h3><p>Theme: Anticipatory Planning for Disaster Risk Reduction, CUET.</p></div>
 <div class="card award" tabindex="0" data-a="mention"><img class="th" src="mention-1.jpg" alt="" onerror="this.remove()"><span class="pill">Honorable Mention · Jun 25, 2026</span><h3>Revealing the Unseen: Season VII</h3><p>Single category, CUET Photographic Society.</p></div>
 </div>
-<h4>Professional & Field Experience</h4>
+<h4 id="fieldexp">Professional & Field Experience</h4>
 <div class="card">
 <div class="item"><h3>Industrial Attachment, Dhaka North City Corporation (DNCC)</h3><p>Team-based study of ward-wise community facilities (health, community, religious, parks and playgrounds). Compared provision against Private Residential Land Development Rules (PRLDR) standards and prepared a comparative analytical report.</p></div>
 <div class="item"><h3>Field Visit, Cox’s Bazar Development Authority & Khurushkul Special Ashrayan Project</h3><p>Observed on-site urban management works, from solid waste management to other services, and visited the world’s largest climate-migrant rehabilitation initiative.</p></div>
 </div>
-<h4>Leadership</h4>
+<h4 id="leadership">Leadership</h4>
 <div class="card"><ul><li>President, CUET Photographic Society (Executive Committee 2026–27)</li><li>Vice-President, Planning Club, CUET (Executive Committee 2026–27)</li><li>Organizing Committee Member, TEDxCUET (2025)</li></ul></div>
 </section>
 
 <section id="outreach"><h2>Outreach & Media</h2>
-<div class="card"><span class="pill">YouTube · GIS & Remote Sensing Tutorials</span>
+<div class="card" id="youtube"><span class="pill">YouTube · GIS & Remote Sensing Tutorials</span>
 <h3>For the love of Spatial Analysis</h3>
 <p>Step-by-step tutorials on ArcGIS Pro, ArcMap and ERDAS Imagine, covering image classification, network analysis and ModelBuilder.</p>
 <div class="skills" style="margin-top:12px"><span>ArcGIS Pro</span><span>ArcMap</span><span>ERDAS Imagine</span><span>Image classification</span><span>Network analysis</span><span>ModelBuilder</span></div>
 <div class="video"><iframe src="https://www.youtube.com/embed/videoseries?list=UUZbsoRs9lR67wSxeykUe84Q" title="GIS & Remote Sensing tutorials by Shafiq Mahmud" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
 <a class="btn p" style="margin-top:16px" href="https://www.youtube.com/@holudhimukalorab" target="_blank" rel="noopener">Watch all tutorials on YouTube ↗</a></div>
-<div class="card" style="margin-top:16px"><h3>Photography, videography and drone work</h3><p>Photography, videography and drone-based aerial work for YPSA, RIMES and Save the Children in Bangladesh, including landslide documentation and a flood-response documentary.</p></div>
+<div class="card" id="photo-work" style="margin-top:16px"><h3>Photography, videography and drone work</h3><p>Photography, videography and drone-based aerial work for YPSA, RIMES and Save the Children in Bangladesh, including landslide documentation and a flood-response documentary.</p></div>
 </section>
 
 <section id="contact"><h2>Contact</h2>
 <p>Open to graduate research opportunities and collaboration.</p>
-<a class="btn p" href="mailto:shafiqmahmud35@gmail.com">shafiqmahmud35@gmail.com</a><a class="btn" href="CV_Shafiq_Mahmud.pdf" download>Download CV</a><a class="btn" href="https://www.linkedin.com/in/mahmud-shafiq/" target="_blank" rel="noopener">LinkedIn ↗</a><a class="btn" href="https://www.youtube.com/@holudhimukalorab" target="_blank" rel="noopener">YouTube ↗</a>
+<a class="btn p" href="mailto:shafiqmahmud35@gmail.com">shafiqmahmud35@gmail.com</a><a class="btn" href="CV_Shafiq_Mahmud.pdf" download>Download CV</a><a class="btn" href="https://www.linkedin.com/in/mahmud-shafiq/" target="_blank" rel="noopener">LinkedIn ↗</a><a class="btn" href="https://scholar.google.com/citations?hl=en&amp;user=vE95BqUAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a><a class="btn" href="https://www.researchgate.net/profile/Shafiq-Mahmud" target="_blank" rel="noopener">ResearchGate ↗</a><a class="btn" href="https://www.youtube.com/@holudhimukalorab" target="_blank" rel="noopener">YouTube ↗</a>
 </section>
 </main>
 <footer>© 2026 Shafiq Mahmud. All rights reserved.</footer>
@@ -178,6 +192,11 @@ document.getElementById('mx').addEventListener('click',close);
 m.addEventListener('click',function(ev){if(ev.target===m)close()});
 document.addEventListener('keydown',function(ev){if(ev.key==='Escape')close()});
 })();
+</script>
+<script>
+(function(){document.querySelectorAll('.links>li.has').forEach(function(li){var sub=li.querySelector('.sub');
+function pos(){var r=li.getBoundingClientRect(),w=sub.offsetWidth||210;sub.style.top=r.bottom+'px';sub.style.left=Math.max(8,Math.min(r.left,innerWidth-w-8))+'px'}
+li.addEventListener('mouseenter',pos);li.addEventListener('focusin',pos)})})();
 </script>
 </body>
 </html>
