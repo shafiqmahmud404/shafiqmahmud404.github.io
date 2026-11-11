@@ -60,6 +60,25 @@ h4{font-size:13px;color:var(--mut);margin:26px 0 10px;text-transform:uppercase;l
 .mx{position:absolute;top:10px;right:12px;border:0;background:none;font-size:26px;line-height:1;color:var(--mut);cursor:pointer}
 .video{position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:var(--ac2);margin-top:16px}.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .cite{margin:0;color:var(--tx);font-size:15px;line-height:1.6}.cite b{font-weight:700}.cite a{color:var(--tx);text-decoration:underline;text-decoration-color:var(--bd);text-underline-offset:3px}.cite a:hover{color:var(--ac)}
+.why{border-left:3px solid var(--ac);padding:2px 0 2px 16px;margin:14px 0 14px;font-size:16.5px;line-height:1.7;color:var(--tx)}
+.card,.stats div{transition:transform .25s,box-shadow .25s,border-color .25s}
+.grid .card:hover,.stats div:hover,main .card:not(#youtube):hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(0,0,0,.16);border-color:var(--ac)}
+.btn{transition:transform .2s,opacity .2s}.btn:hover{transform:translateY(-2px)}
+.skills span{transition:transform .2s,border-color .2s}.skills span:hover{transform:translateY(-3px);border-color:var(--ac)}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+.sphere{position:relative;height:400px;overflow:hidden;touch-action:pan-y;cursor:grab;user-select:none}
+.sphere span{position:absolute;left:50%;top:50%;white-space:nowrap;font-size:14px;font-weight:600;padding:5px 12px;border-radius:99px;border:1px solid var(--bd);background:var(--card);color:var(--tx);will-change:transform,opacity}
+.sphere .g1{background:var(--ac);color:var(--onac);border-color:var(--ac)}.sphere .g2{border-color:var(--ac);color:var(--ac)}.sphere .g3{color:var(--mut)}
+.legend{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;font-size:13px;color:var(--mut)}
+.d{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}.d.g1{background:var(--ac)}.d.g2{border:2px solid var(--ac)}.d.g3{background:var(--mut);opacity:.6}
+details.cat{margin-top:22px}details.cat summary{cursor:pointer;color:var(--ac);font-weight:600}
+.ring{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.rb{display:none;position:absolute;top:50%;z-index:5;width:40px;height:40px;margin-top:-20px;border-radius:50%;border:1px solid var(--bd);background:var(--card);color:var(--tx);font-size:22px;place-items:center;cursor:pointer}#rp{left:4px}#rn{right:4px}
+.ringwrap.on{position:relative;height:400px;perspective:1100px;overflow:hidden}.ringwrap.on .rb{display:grid}
+.ringwrap.on .ring{display:block;position:absolute;inset:0;transform-style:preserve-3d}
+.ringwrap.on .card{position:absolute;left:50%;top:12px;width:270px;height:350px;margin-left:-135px;overflow:hidden;backface-visibility:hidden}
+.ringwrap.on .th{height:110px}.ringwrap.on .card:hover{border-color:var(--ac);box-shadow:0 14px 30px rgba(0,0,0,.2)}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 .th{width:100%;height:150px;object-fit:cover;border-radius:8px;margin:0 0 12px;display:block}
 footer{margin-top:56px;border-top:1px solid var(--bd);padding:28px 20px;text-align:center;color:var(--mut);font-size:14px}
 </style>
@@ -80,7 +99,6 @@ footer{margin-top:56px;border-top:1px solid var(--bd);padding:28px 20px;text-ali
 <span class="open">Seeking graduate research opportunities</span>
 <h1>Shafiq Mahmud</h1>
 <div class="tag">GIS · Remote Sensing · GeoAI & Geospatial Machine Learning</div>
-<p>Final-year undergraduate in Urban and Regional Planning at CUET, building uncertainty-aware geospatial models for flood, landslide, drought and storm risk.</p>
 <a class="btn p" href="#research">Research</a><a class="btn" href="CV_Shafiq_Mahmud.pdf" download>Download CV</a><a class="btn" href="mailto:shafiqmahmud35@gmail.com">Email</a><a class="btn" href="https://www.linkedin.com/in/mahmud-shafiq/" target="_blank" rel="noopener">LinkedIn ↗</a><a class="btn" href="https://scholar.google.com/citations?hl=en&amp;user=vE95BqUAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a><a class="btn" href="https://www.researchgate.net/profile/Shafiq-Mahmud" target="_blank" rel="noopener">ResearchGate ↗</a>
 </div>
 </header>
@@ -128,22 +146,22 @@ footer{margin-top:56px;border-top:1px solid var(--bd);padding:28px 20px;text-ali
 <div class="card"><span class="pill">Climate & Disaster Mgmt · URP 436</span><h3>Air Quality and Its Impact in Chattogram City Corporation</h3><p>Assessed key air quality indicators and their impact on the urban environment and public health.</p><a class="lnk" href="air-quality-chattogram.pdf" target="_blank" rel="noopener">View report (PDF) ↗</a></div>
 </div></section>
 
-<section id="skills"><h2>Skills</h2><div class="skills">
+<section id="skills"><h2>Skills</h2><div class="sphere" id="sphere" aria-hidden="true"></div><div class="legend"><span><i class="d g1"></i>Geospatial & remote sensing</span><span><i class="d g2"></i>Programming & modeling</span><span><i class="d g3"></i>Design & media</span></div><details class="cat"><summary>View all skills by category</summary><div class="skills">
 <h4>Geospatial & Remote Sensing</h4><span>ArcGIS Pro</span><span>ArcMap</span><span>QGIS</span><span>ERDAS Imagine</span><span>Google Earth Engine</span>
 <h4>Programming & Modeling</h4><span>Python</span><span>R</span><span>JavaScript</span><span>Machine learning</span><span>Susceptibility modeling</span><span>Uncertainty-aware methods</span>
 <h4>Core Competencies</h4><span>Geospatial analysis & modeling</span><span>Disaster risk & vulnerability assessment</span><span>Research & technical writing</span><span>Data-driven decision making</span><span>Team leadership</span>
 <h4>Design & Media</h4><span>AutoCAD</span><span>SketchUp</span><span>Photoshop</span><span>Lightroom</span><span>Premiere Pro</span><span>DaVinci Resolve</span><span>Canva</span><span>Word / Excel / PowerPoint</span>
 <h4>Languages</h4><span>Bangla (native)</span><span>English</span>
-</div></section>
+</div></details></section>
 
 <section id="beyond"><h2>Awards, Experience &amp; Leadership</h2>
 <h4 id="honors">Honors & Awards</h4>
-<div class="grid">
+<div class="ringwrap" id="ringwrap"><div class="ring" id="ring">
 <div class="card award" tabindex="0" data-a="unops"><img class="th" src="unops-1.jpg" alt="" onerror="this.remove()"><span class="pill">First Prize</span><h3>Carbon Conscious Urban Design Idea Competition</h3><p>UNOPS, RAJUK, MoHPW, with support from BMZ. Concept: “The Receding Membrane”.</p></div>
 <div class="card award" tabindex="0" data-a="quiz"><img class="th" src="quiz-1.jpg" alt="" onerror="this.remove()"><span class="pill">Winner · Nov 8, 2024</span><h3>Inter-University Quiz on Spatial Planning Framework for Bangladesh</h3><p>University level. Bangladesh Institute of Planners.</p></div>
 <div class="card award" tabindex="0" data-a="photo"><img class="th" src="photo-contest-1.jpg" alt="" onerror="this.remove()"><span class="pill">First Prize · Nov 20, 2025</span><h3>World Town Planning Day Photography Contest</h3><p>Theme: Anticipatory Planning for Disaster Risk Reduction, CUET.</p></div>
 <div class="card award" tabindex="0" data-a="mention"><img class="th" src="mention-1.jpg" alt="" onerror="this.remove()"><span class="pill">Honorable Mention · Jun 25, 2026</span><h3>Revealing the Unseen: Season VII</h3><p>Single category, CUET Photographic Society.</p></div>
-</div>
+</div><button class="rb" id="rp" aria-label="Previous award">‹</button><button class="rb" id="rn" aria-label="Next award">›</button></div>
 <h4 id="fieldexp">Professional & Field Experience</h4>
 <div class="card">
 <div class="item"><h3>Industrial Attachment, Dhaka North City Corporation (DNCC)</h3><p>Team-based study of ward-wise community facilities (health, community, religious, parks and playgrounds). Compared provision against Private Residential Land Development Rules (PRLDR) standards and prepared a comparative analytical report.</p></div>
@@ -156,9 +174,10 @@ footer{margin-top:56px;border-top:1px solid var(--bd);padding:28px 20px;text-ali
 <section id="outreach"><h2>Outreach & Media</h2>
 <div class="card" id="youtube"><span class="pill">YouTube · GIS & Remote Sensing Tutorials</span>
 <h3>For the love of Spatial Analysis</h3>
-<p>Step-by-step tutorials on ArcGIS Pro, ArcMap and ERDAS Imagine, covering image classification, network analysis and ModelBuilder.</p>
+
+<p>I make step-by-step video tutorials on ArcGIS Pro, ArcMap and ERDAS Imagine, from image classification and network analysis to ModelBuilder.</p>
 <div class="skills" style="margin-top:12px"><span>ArcGIS Pro</span><span>ArcMap</span><span>ERDAS Imagine</span><span>Image classification</span><span>Network analysis</span><span>ModelBuilder</span></div>
-<div class="video"><iframe src="https://www.youtube.com/embed/videoseries?list=UUZbsoRs9lR67wSxeykUe84Q" title="GIS & Remote Sensing tutorials by Shafiq Mahmud" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+<h4 style="margin:20px 0 0">Latest tutorials</h4><div class="video"><iframe src="https://www.youtube.com/embed/videoseries?list=UUZbsoRs9lR67wSxeykUe84Q" title="GIS & Remote Sensing tutorials by Shafiq Mahmud" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
 <a class="btn p" style="margin-top:16px" href="https://www.youtube.com/@holudhimukalorab" target="_blank" rel="noopener">Watch all tutorials on YouTube ↗</a></div>
 <div class="card" id="photo-work" style="margin-top:16px"><h3>Photography, videography and drone work</h3><p>Photography, videography and drone-based aerial work for YPSA, RIMES and Save the Children in Bangladesh, including landslide documentation and a flood-response documentary.</p></div>
 </section>
@@ -197,6 +216,39 @@ document.addEventListener('keydown',function(ev){if(ev.key==='Escape')close()});
 (function(){document.querySelectorAll('.links>li.has').forEach(function(li){var sub=li.querySelector('.sub');
 function pos(){var r=li.getBoundingClientRect(),w=sub.offsetWidth||210;sub.style.top=r.bottom+'px';sub.style.left=Math.max(8,Math.min(r.left,innerWidth-w-8))+'px'}
 li.addEventListener('mouseenter',pos);li.addEventListener('focusin',pos)})})();
+</script>
+<script>
+(function(){
+var red=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function watch(el,f){if(!('IntersectionObserver' in window)){f(true);return}new IntersectionObserver(function(e){f(e[0].isIntersecting)}).observe(el)}
+// reveal
+var secs=document.querySelectorAll('main>section');
+if(!red&&'IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});secs.forEach(function(x){x.classList.add('rv');io.observe(x)})}
+// skills sphere
+var el=document.getElementById('sphere');
+if(el){var L=[['g1',['ArcGIS Pro','ArcMap','QGIS','ERDAS Imagine','Google Earth Engine','Remote sensing','GIS']],['g2',['Python','R','JavaScript','Machine learning','Susceptibility modeling','Uncertainty-aware methods','GeoAI']],['g3',['AutoCAD','SketchUp','Photoshop','Lightroom','Premiere Pro','DaVinci Resolve','Canva','Excel']]],P=[],k=0,more=true;
+while(more){more=false;L.forEach(function(g){if(g[1][k]){more=true;var s=document.createElement('span');s.className=g[0];s.textContent=g[1][k];el.appendChild(s);P.push(s)}});k++}
+var n=P.length,pts=P.map(function(s,i){var y=1-2*(i+.5)/n,r=Math.sqrt(1-y*y),t=i*2.399963;return{x:Math.cos(t)*r,y:y,z:Math.sin(t)*r}}),a=0,tilt=.35,drag=false,lx=0,ly=0,vis=true;
+function draw(){var w=el.clientWidth,R=Math.min(w/2-80,165),ca=Math.cos(a),sa=Math.sin(a),ct=Math.cos(tilt),st=Math.sin(tilt);
+pts.forEach(function(p,i){var x=p.x*ca+p.z*sa,z=-p.x*sa+p.z*ca,y=p.y*ct-z*st,z2=p.y*st+z*ct,d=(z2+1)/2,s=P[i];
+s.style.transform='translate(-50%,-50%) translate('+(x*R)+'px,'+(y*R)+'px) scale('+(.6+.5*d)+')';s.style.opacity=.25+.75*d;s.style.zIndex=Math.round(d*100)})}
+function tick(){if(vis){if(!drag&&!red)a+=.004;draw()}requestAnimationFrame(tick)}
+el.addEventListener('pointerdown',function(e){drag=true;lx=e.clientX;ly=e.clientY;el.setPointerCapture(e.pointerId);el.style.cursor='grabbing'});
+el.addEventListener('pointermove',function(e){if(!drag)return;a+=(e.clientX-lx)*.008;tilt=Math.max(-1,Math.min(1,tilt+(e.clientY-ly)*.005));lx=e.clientX;ly=e.clientY});
+['pointerup','pointercancel'].forEach(function(t){el.addEventListener(t,function(){drag=false;el.style.cursor='grab'})});
+watch(el,function(v){vis=v});draw();tick()}
+// awards ring
+var w=document.getElementById('ringwrap');
+if(w){var r=document.getElementById('ring'),c=[].slice.call(r.children).filter(function(x){return x.classList.contains('card')}),n2=c.length,step=360/n2,R2=Math.round(135/Math.tan(Math.PI/n2))+70,ang=0,paused=false,jump=false,vis2=true,md=document.getElementById('modal');
+w.classList.add('on');c.forEach(function(x,i){x.style.transform='rotateY('+i*step+'deg) translateZ('+R2+'px)'});
+function set(){r.style.transform='translateZ('+(-R2)+'px) rotateY('+ang+'deg)'}set();
+function t2(){if(!paused&&!jump&&!red&&vis2&&!md.classList.contains('on')){ang-=.18;set()}requestAnimationFrame(t2)}
+function go(d){jump=true;r.style.transition='transform .6s ease';ang-=d*step;set();setTimeout(function(){r.style.transition='';jump=false},650)}
+document.getElementById('rp').addEventListener('click',function(){go(-1)});document.getElementById('rn').addEventListener('click',function(){go(1)});
+w.addEventListener('mouseenter',function(){paused=true});w.addEventListener('mouseleave',function(){paused=false});
+w.addEventListener('focusin',function(){paused=true});w.addEventListener('focusout',function(){paused=false});
+watch(w,function(v){vis2=v});t2()}
+})();
 </script>
 </body>
 </html>
