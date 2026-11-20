@@ -11,7 +11,7 @@
 :root[data-theme="dark"]{--bg:#0d1b2a;--card:#1b263b;--tx:#e0e1dd;--mut:#93a6bf;--ac:#93a6bf;--ac2:#263650;--bd:#334a66;--onac:#0d1b2a;color-scheme:dark}
 html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body{overflow-x:clip;margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 a{color:var(--ac);text-decoration:none}a:hover{text-decoration:underline}
 nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--bd)}
 nav .bar{max-width:960px;margin:auto;padding:12px 20px;display:flex;gap:18px;align-items:center;overflow-x:auto;white-space:nowrap}
@@ -66,15 +66,16 @@ h4{font-size:13px;color:var(--mut);margin:26px 0 10px;text-transform:uppercase;l
 .btn{transition:transform .2s,opacity .2s}.btn:hover{transform:translateY(-2px)}
 .skills span{transition:transform .2s,border-color .2s}.skills span:hover{transform:translateY(-3px);border-color:var(--ac)}
 .rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
-.sphere{position:relative;height:400px;overflow:hidden;touch-action:pan-y;cursor:grab;user-select:none}
+.full{width:100vw;margin-left:calc(50% - 50vw)}
+.sphere{position:relative;height:440px;overflow:hidden;touch-action:pan-y;cursor:grab;user-select:none}
 .sphere span{position:absolute;left:50%;top:50%;white-space:nowrap;font-size:14px;font-weight:600;padding:5px 12px;border-radius:99px;border:1px solid var(--bd);background:var(--card);color:var(--tx);will-change:transform,opacity}
 .sphere .g1{background:var(--ac);color:var(--onac);border-color:var(--ac)}.sphere .g2{border-color:var(--ac);color:var(--ac)}.sphere .g3{color:var(--mut)}
 .legend{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;font-size:13px;color:var(--mut)}
 .d{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}.d.g1{background:var(--ac)}.d.g2{border:2px solid var(--ac)}.d.g3{background:var(--mut);opacity:.6}
 details.cat{margin-top:22px}details.cat summary{cursor:pointer;color:var(--ac);font-weight:600}
 .ring{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.rb{display:none;position:absolute;top:50%;z-index:5;width:40px;height:40px;margin-top:-20px;border-radius:50%;border:1px solid var(--bd);background:var(--card);color:var(--tx);font-size:22px;place-items:center;cursor:pointer}#rp{left:4px}#rn{right:4px}
-.ringwrap.on{position:relative;height:400px;perspective:1100px;overflow:hidden}.ringwrap.on .rb{display:grid}
+.rb{display:none;position:absolute;top:50%;z-index:5;width:40px;height:40px;margin-top:-20px;border-radius:50%;border:1px solid var(--bd);background:var(--card);color:var(--tx);font-size:22px;place-items:center;cursor:pointer}#rp{left:20px}#rn{right:20px}
+.ringwrap.on{position:relative;height:420px;perspective:1100px;overflow:hidden}.ringwrap.on .rb{display:grid}
 .ringwrap.on .ring{display:block;position:absolute;inset:0;transform-style:preserve-3d}
 .ringwrap.on .card{position:absolute;left:50%;top:12px;width:270px;height:350px;margin-left:-135px;overflow:hidden;backface-visibility:hidden}
 .ringwrap.on .th{height:110px}.ringwrap.on .card:hover{border-color:var(--ac);box-shadow:0 14px 30px rgba(0,0,0,.2)}
@@ -147,7 +148,7 @@ footer{margin-top:56px;border-top:1px solid var(--bd);padding:28px 20px;text-ali
 <div class="card"><span class="pill">URP 364 · Remote Sensing and Photogrammetry Lab</span><h3>Nighttime light and urban vulnerability, Dhaka</h3><p>Assessed spatio-temporal change in nighttime light emissions as an indicator of urban vulnerability.</p><a class="lnk" href="nightlight-dhaka.pdf" target="_blank" rel="noopener">View report (PDF) ↗</a></div>
 </div></section>
 
-<section id="skills"><h2>Skills</h2><div class="sphere" id="sphere" aria-hidden="true"></div><div class="legend"><span><i class="d g1"></i>Geospatial & remote sensing</span><span><i class="d g2"></i>Programming & modeling</span><span><i class="d g3"></i>Design & media</span></div><details class="cat"><summary>View all skills by category</summary><div class="skills">
+<section id="skills"><h2>Skills</h2><div class="sphere full" id="sphere" aria-hidden="true"></div><div class="legend"><span><i class="d g1"></i>Geospatial & remote sensing</span><span><i class="d g2"></i>Programming & modeling</span><span><i class="d g3"></i>Design & media</span></div><details class="cat"><summary>View all skills by category</summary><div class="skills">
 <h4>Geospatial & Remote Sensing</h4><span>ArcGIS Pro</span><span>ArcMap</span><span>QGIS</span><span>ERDAS Imagine</span><span>Google Earth Engine</span>
 <h4>Programming & Modeling</h4><span>Python</span><span>R</span><span>JavaScript</span><span>Machine learning</span><span>Susceptibility modeling</span><span>Uncertainty-aware methods</span>
 <h4>Core Competencies</h4><span>Geospatial analysis & modeling</span><span>Disaster risk & vulnerability assessment</span><span>Research & technical writing</span><span>Data-driven decision making</span><span>Team leadership</span>
@@ -157,7 +158,7 @@ footer{margin-top:56px;border-top:1px solid var(--bd);padding:28px 20px;text-ali
 
 <section id="beyond"><h2>Awards, Experience &amp; Leadership</h2>
 <h4 id="honors">Honors & Awards</h4>
-<div class="ringwrap" id="ringwrap"><div class="ring" id="ring">
+<div class="ringwrap full" id="ringwrap"><div class="ring" id="ring">
 <div class="card award" tabindex="0" data-a="unops"><img class="th" src="unops-1.jpg" alt="" onerror="this.remove()"><span class="pill">First Prize</span><h3>Carbon Conscious Urban Design Idea Competition</h3><p>UNOPS, RAJUK, MoHPW, with support from BMZ. Concept: “The Receding Membrane”.</p></div>
 <div class="card award" tabindex="0" data-a="quiz"><img class="th" src="quiz-1.jpg" alt="" onerror="this.remove()"><span class="pill">Winner · Nov 8, 2024</span><h3>Inter-University Quiz on Spatial Planning Framework for Bangladesh</h3><p>University level. Bangladesh Institute of Planners.</p></div>
 <div class="card award" tabindex="0" data-a="photo"><img class="th" src="photo-contest-1.jpg" alt="" onerror="this.remove()"><span class="pill">First Prize · Nov 20, 2025</span><h3>World Town Planning Day Photography Contest</h3><p>Theme: Anticipatory Planning for Disaster Risk Reduction, CUET.</p></div>
@@ -227,22 +228,25 @@ var secs=document.querySelectorAll('main>section');
 if(!red&&'IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});secs.forEach(function(x){x.classList.add('rv');io.observe(x)})}
 // skills sphere
 var el=document.getElementById('sphere');
-if(el){var L=[['g1',['ArcGIS Pro','ArcMap','QGIS','ERDAS Imagine','Google Earth Engine','Remote sensing','GIS']],['g2',['Python','R','JavaScript','Machine learning','Susceptibility modeling','Uncertainty-aware methods','GeoAI']],['g3',['AutoCAD','SketchUp','Photoshop','Lightroom','Premiere Pro','DaVinci Resolve','Canva','Excel']]],P=[],k=0,more=true;
+if(el){var L=[['g1',['ArcGIS Pro','ArcMap','QGIS','ERDAS Imagine','Google Earth Engine','Remote sensing','GIS','Spatial analysis','Image classification','Network analysis','ModelBuilder']],['g2',['Python','R','JavaScript','Machine learning','Susceptibility modeling','Uncertainty-aware methods','GeoAI','ANN','Bayesian ML','Ensemble modeling']],['g3',['AutoCAD','SketchUp','Photoshop','Lightroom','Premiere Pro','DaVinci Resolve','Canva','Word','Excel','PowerPoint']]],P=[],k=0,more=true;
 while(more){more=false;L.forEach(function(g){if(g[1][k]){more=true;var s=document.createElement('span');s.className=g[0];s.textContent=g[1][k];el.appendChild(s);P.push(s)}});k++}
-var n=P.length,pts=P.map(function(s,i){var y=1-2*(i+.5)/n,r=Math.sqrt(1-y*y),t=i*2.399963;return{x:Math.cos(t)*r,y:y,z:Math.sin(t)*r}}),a=0,tilt=.35,drag=false,lx=0,ly=0,vis=true;
-function draw(){var w=el.clientWidth,R=Math.min(w/2-80,165),ca=Math.cos(a),sa=Math.sin(a),ct=Math.cos(tilt),st=Math.sin(tilt);
+var n=P.length,pts=P.map(function(s,i){var y=1-2*(i+.5)/n,r=Math.sqrt(1-y*y),t=i*2.399963;return{x:Math.cos(t)*r,y:y,z:Math.sin(t)*r}}),a=0,tilt=.3,drag=false,lx=0,ly=0,vis=true;
+function draw(){var w=el.clientWidth,h=el.clientHeight,Rx=Math.max(110,Math.min(w/2-100,900)),Ry=Math.min(h/2-45,185),ca=Math.cos(a),sa=Math.sin(a),ct=Math.cos(tilt),st=Math.sin(tilt);
 pts.forEach(function(p,i){var x=p.x*ca+p.z*sa,z=-p.x*sa+p.z*ca,y=p.y*ct-z*st,z2=p.y*st+z*ct,d=(z2+1)/2,s=P[i];
-s.style.transform='translate(-50%,-50%) translate('+(x*R)+'px,'+(y*R)+'px) scale('+(.6+.5*d)+')';s.style.opacity=.25+.75*d;s.style.zIndex=Math.round(d*100)})}
+s.style.transform='translate(-50%,-50%) translate('+(x*Rx)+'px,'+(y*Ry)+'px) scale('+(.6+.5*d)+')';s.style.opacity=.25+.75*d;s.style.zIndex=Math.round(d*100)})}
 function tick(){if(vis){if(!drag&&!red)a+=.004;draw()}requestAnimationFrame(tick)}
 el.addEventListener('pointerdown',function(e){drag=true;lx=e.clientX;ly=e.clientY;el.setPointerCapture(e.pointerId);el.style.cursor='grabbing'});
-el.addEventListener('pointermove',function(e){if(!drag)return;a+=(e.clientX-lx)*.008;tilt=Math.max(-1,Math.min(1,tilt+(e.clientY-ly)*.005));lx=e.clientX;ly=e.clientY});
+el.addEventListener('pointermove',function(e){if(!drag)return;a+=(e.clientX-lx)*.006;tilt=Math.max(-.8,Math.min(.8,tilt+(e.clientY-ly)*.004));lx=e.clientX;ly=e.clientY});
 ['pointerup','pointercancel'].forEach(function(t){el.addEventListener(t,function(){drag=false;el.style.cursor='grab'})});
 watch(el,function(v){vis=v});draw();tick()}
 // awards ring
 var w=document.getElementById('ringwrap');
-if(w){var r=document.getElementById('ring'),c=[].slice.call(r.children).filter(function(x){return x.classList.contains('card')}),n2=c.length,step=360/n2,R2=Math.round(135/Math.tan(Math.PI/n2))+70,ang=0,paused=false,jump=false,vis2=true,md=document.getElementById('modal');
-w.classList.add('on');c.forEach(function(x,i){x.style.transform='rotateY('+i*step+'deg) translateZ('+R2+'px)'});
-function set(){r.style.transform='translateZ('+(-R2)+'px) rotateY('+ang+'deg)'}set();
+if(w){var r=document.getElementById('ring'),md=document.getElementById('modal'),orig=[].slice.call(r.children).filter(function(x){return x.classList.contains('card')});
+orig.forEach(function(o){var c=o.cloneNode(true);c.setAttribute('aria-hidden','true');c.tabIndex=-1;c.addEventListener('click',function(){o.click()});r.appendChild(c)});
+var c=[].slice.call(r.children).filter(function(x){return x.classList.contains('card')}),n2=c.length,step=360/n2,R2=300,ang=0,paused=false,jump=false,vis2=true;
+function set(){r.style.transform='translateZ('+(-R2)+'px) rotateY('+ang+'deg)'}
+function layout(){R2=Math.max(Math.round(135/Math.tan(Math.PI/n2))+30,Math.min(Math.round(w.clientWidth*.36),620));c.forEach(function(x,i){x.style.transform='rotateY('+i*step+'deg) translateZ('+R2+'px)'});set()}
+w.classList.add('on');layout();window.addEventListener('resize',layout);
 function t2(){if(!paused&&!jump&&!red&&vis2&&!md.classList.contains('on')){ang-=.18;set()}requestAnimationFrame(t2)}
 function go(d){jump=true;r.style.transition='transform .6s ease';ang-=d*step;set();setTimeout(function(){r.style.transition='';jump=false},650)}
 document.getElementById('rp').addEventListener('click',function(){go(-1)});document.getElementById('rn').addEventListener('click',function(){go(1)});
